@@ -1,0 +1,39 @@
+.outercontainer{
+  margin-bottom: 20px;
+  /* min-width: 350px; */
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.category{
+  margin-right: 10px;
+  padding-top: 5px;
+}
+.left{
+  /* padding-left: 20px; */
+}
+.name{
+  font-size: 13px;
+  font-weight: bold;
+  margin-right: 6px;
+  font-family: sans-serif;
+}
+.categoryname{
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.in{
+  font-size: 13px;
+  margin-right: 6px;
+  font-weight: 500;
+  color: darkgrey;
+  font-family: sans-serif;
+}
+.title{
+  font-size: 15px;
+  padding:5px 0px 5px 0px;
+  font-weight: 800;
+}
+.time{
+  color: grey;
+}

@@ -1,0 +1,26 @@
+.container{
+
+}
+.blogcontainer{
+
+}
+
+.title1{
+  padding-bottom: 17px;
+  padding-left: 15px;
+  font-weight: bolder;
+  font-size: 13px;
+  color:black;
+  letter-spacing: 1px;
+}
+.rightContainer{
+    background-color: rgb(250, 250, 250);
+    min-height: 400px;
+}
+
+.field{
+  padding: 10px;
+  font-size: 13px;
+  color: grey;
+  font-weight: 400;
+}

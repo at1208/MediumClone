@@ -1,0 +1,45 @@
+.title{
+  font-size: 24px;
+  font-weight: 700;
+}
+.subheading{
+  font-size: 19px;
+  padding: 8px 0px 10px 0px;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+.time{
+  color: grey;
+}
+.outercontainer{
+  margin-bottom: 20px;
+}
+.name{
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 6px;
+  margin-left: 10px;
+  font-family:sans-serif;
+}
+.categoryname{
+  font-size: 15px;
+  font-weight: bold;
+  font-family:sans-serif;
+}
+.in{
+  font-size: 14px;
+  margin-right: 6px;
+  font-weight: 500;
+  color: darkgrey;
+  font-family:sans-serif;
+}
+.text{
+  font-size: 16px;
+  font-weight: 700;
+}
+.count{
+  /* padding-top: 10px; */
+  font-size: 35px;
+  font-weight: 600;
+  color: lightgrey;
+}

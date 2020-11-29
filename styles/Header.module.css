@@ -1,0 +1,29 @@
+.outercontainer{
+  /* height: 110px; */
+  padding-bottom: 30px;
+  padding-left: 3%;
+  padding-top: 40px;
+  padding-right: 3%;
+}
+.picture{
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+.appname{
+  font-size: 30px;
+}
+@media (min-width:767px) {
+  .appname{
+    font-size: 40px;
+  }
+  .outercontainer{
+    padding-bottom: 30px;
+    padding-left: 9%;
+    padding-top: 40px;
+    padding-right: 9%;
+  }
+}
+.menuitem{
+  border: 0px solid black;
+}

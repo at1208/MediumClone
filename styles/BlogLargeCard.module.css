@@ -1,0 +1,39 @@
+.outercontainer{
+ padding-right: 15px;
+ padding-left: 15px;
+}
+.title{
+  font-size: 24px;
+  font-weight: 700;
+}
+.category{
+  margin-right: 10px;
+  padding-top: 5px;
+}
+.name{
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 6px;
+  font-family:sans-serif;
+}
+.categoryname{
+  font-size: 15px;
+  font-weight: bold;
+  font-family:sans-serif;
+}
+.in{
+  font-size: 14px;
+  margin-right: 6px;
+  font-weight: 500;
+  color: darkgrey;
+  font-family:sans-serif;
+}
+.subheading{
+  font-size: 19px;
+  padding: 8px 0px 10px 0px;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+.time{
+  color: grey;
+}

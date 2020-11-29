@@ -1,0 +1,39 @@
+.outercontainer{
+  margin-bottom: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.category{
+  margin-right: 10px;
+  padding-top: 5px;
+}
+.name{
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 6px;
+  font-family:sans-serif;
+}
+.categoryname{
+  font-size: 15px;
+  font-weight: bold;
+  font-family:sans-serif;
+}
+.in{
+  font-size: 14px;
+  margin-right: 6px;
+  font-weight: 500;
+  color: darkgrey;
+  font-family:sans-serif;
+}
+.time{
+  color: grey;
+}
+.title{
+  font-size: 22px;
+  font-weight: 800;
+}
+.excerpt{
+  padding: 10px 0px 10px 0px;
+  color: #6f6e6e;
+  font-weight: 400;
+}

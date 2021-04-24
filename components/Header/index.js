@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from '../../styles/Header.module.css';
-import { isAuth, google_user, signout } from '../../actions/auth';
+import { isAuth, signout } from '../../actions/auth';
 // import Image from 'next/image';
 import { Menu, Dropdown } from 'antd';
 import 'antd/dist/antd.css';
@@ -10,20 +10,6 @@ const Header = () => {
   const [user, setUser] = useState();
 
 
-  useEffect(() => {
-    let userId = isAuth() && isAuth()._id;
-    google_user(userId)
-       .then( response => {
-         if(response.error){
-           return;
-         }
-         setUser(response)
-       })
-       .catch((err) => {
-         console.log(err)
-       })
-  },[])
-
   const menu = (
     <Menu>
       <Menu.Item key="0">
@@ -32,7 +18,7 @@ const Header = () => {
     </Menu>
   );
 
- 
+
 
   return <div className={styles.outercontainer}>
             <div className="row">

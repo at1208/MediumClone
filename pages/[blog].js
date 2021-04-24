@@ -35,35 +35,35 @@ const Blog = ({ query, router }) => {
   })
 
 
-  const handleOnetapResponse = (response) => {
-    one_tap_login({ googleToken: response.credential, domain: "http://localhost:3000" })
-      .then(result => {
-        authenticate(result, () => {
-            Router.push(`/${router.query.blog}`)
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-
-  useEffect(() => {
-  if(!isAuth()){
-      window.onload = function () {
-         google.accounts.id.initialize({
-           client_id:'198321905228-ctfq82du8gn1ftnjf2hlai4bli2g932c.apps.googleusercontent.com',
-           callback: handleOnetapResponse
-         });
-
-         google.accounts.id.prompt((notification) => {
-           if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-
-           }
-       });
-       }
-  }
-  }, [])
+  // const handleOnetapResponse = (response) => {
+  //   one_tap_login({ googleToken: response.credential, domain: "http://localhost:3000" })
+  //     .then(result => {
+  //       authenticate(result, () => {
+  //           Router.push(`/${router.query.blog}`)
+  //       })
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
+  //
+  //
+  // useEffect(() => {
+  // if(!isAuth()){
+  //     window.onload = function () {
+  //        google.accounts.id.initialize({
+  //          client_id:'909779191807-1cel5jhmig8bflc677mi46ppvai4ku6c.apps.googleusercontent.com',
+  //          callback: handleOnetapResponse
+  //        });
+  //
+  //        google.accounts.id.prompt((notification) => {
+  //          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+  //
+  //          }
+  //      });
+  //      }
+  // }
+  // }, [])
 
 
 

@@ -3,7 +3,7 @@ import cookie from 'js-cookie';
 
 
 export const one_tap_login = (data) => {
-   return fetch(`${process.env.NEXT_PUBLIC_API}/google/onetap/login`, {
+   return fetch(`${process.env.NEXT_PUBLIC_SERVER_API}/google/onetap/login`, {
     method: 'POST',
     headers: {
       Accept: "application/json",
@@ -19,34 +19,12 @@ export const one_tap_login = (data) => {
    });
 }
 
-export const google_user = (id) => {
-     return fetch(`${process.env.NEXT_PUBLIC_API}/get/google/user/${id}`, {
-        method: 'GET',
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-    })
-        .then(response => {
-              return response.json()
-        })
-        .catch(err => console.log(err));
-};
-
 
 
 export const signout = next => {
     removeCookie('token');
     removeLocalStorage('user');
     next();
-
-    return fetch(`${process.env.NEXT_PUBLIC_API}/signout`, {
-        method: 'GET'
-    })
-        .then(response => {
-            console.log('signout success');
-        })
-        .catch(err => console.log(err));
 };
 
 

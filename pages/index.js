@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
+import jwt_decode from 'jwt-decode'
 import styles from '../styles/Home.module.css';
 import BlogLargeCard from '../components/Blog/largeCard';
 import BlogSmallCard from '../components/Blog/smallCard';
@@ -48,12 +49,10 @@ const Home = () => {
     var rightside = document.getElementById("rightbottom");
     var sticky = rightside.offsetTop;
     function myFunction() {
-
       if (window.pageYOffset > 1000) {
         rightside.classList.add("fix-right-bottom");
 
       } else {
-
         rightside.classList.remove("fix-right-bottom");
       }
     }
@@ -61,10 +60,12 @@ const Home = () => {
 
 
   const handleOnetapResponse = (response) => {
-    one_tap_login({ googleToken: response.credential, domain: "http://localhost:3000" })
+  const decodedToken = jwt_decode(response.credential)
+    one_tap_login({ googleToken: response.credential, domain: process.env.NEXT_PUBLIC_CLIENT_URL })
       .then(result => {
+        console.log(result)
         authenticate(result, () => {
-          Router.push(`/`)
+          // Router.push(`/`)
         })
       })
       .catch((err) => {
@@ -74,15 +75,14 @@ const Home = () => {
 
 
   useEffect(() => {
-  if(!isAuth()){
-    window.onload = function () {
-       google.accounts.id.initialize({
-         client_id:'198321905228-ctfq82du8gn1ftnjf2hlai4bli2g932c.apps.googleusercontent.com',
-         callback: handleOnetapResponse
-       });
-       google.accounts.id.prompt();
-     }
-  }
+
+  window.onload = function () {
+     google.accounts.id.initialize({
+       client_id:process.env.NEXT_PUBLIC_GOOGLE_CLIEND_ID,
+       callback: handleOnetapResponse
+     });
+     google.accounts.id.prompt();
+   }
   }, [])
 
   return <>

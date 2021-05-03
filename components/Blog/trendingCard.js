@@ -1,9 +1,12 @@
 import styles from '../../styles/TrendingCard.module.css';
 import Image from 'next/image'
 import Link from 'next/link';
+const readingTime = require('reading-time');
+import moment from 'moment';
 
-const Card = ({ count }) => {
-  return <div className="col-md-4">
+const Card = ({ blog, count }) => {
+  return <Link href={`/${blog && blog.slug}`}>
+         <div className="col-md-4">
            <div className={styles.outercontainer}>
              <div className="row">
               <div className="col-2">
@@ -15,21 +18,18 @@ const Card = ({ count }) => {
                   <Image src="/blog.jpeg" width="25" height="25" alt="Profile Picture" className="img img-fluid"/>
                  </div>
                  <div className="col pt">
-                  <font className={styles.name}> Aman Tiwari</font>
+                  <font className={styles.name}>{blog && blog.postedBy && blog.postedBy.full_name}</font>
                   <font className={styles.in}>in</font>
-                  <font className={styles.categoryname}>Javascript</font>
+                  <font className={styles.categoryname}>{blog && blog.categories && blog.categories[0].name}</font>
                  </div>
                </div>
-                 <Link href="/Creating-a-Design-System-in-React">
-                   <a>
-                    <section className={styles.text}>I created my own YouTube algorithm (to stop me wasting time)</section>
-                   </a>
-                 </Link>
-                <small className={styles.time}>May 26 . 9 min read</small>
+                  <section className={styles.text}>{blog && blog.title}</section>
+                <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body).text}</small>
               </div>
              </div>
            </div>
          </div>
+        </Link>
 }
 
 export default Card;

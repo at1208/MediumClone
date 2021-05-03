@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { useEffect } from 'react';
 import jwt_decode from 'jwt-decode'
 import styles from '../styles/Home.module.css';
 import BlogLargeCard from '../components/Blog/largeCard';
@@ -9,41 +9,16 @@ import AuthorCard from '../components/Blog/authorCard';
 import TrendingCard from '../components/Blog/trendingCard';
 import Layout from '../components/Layout';
 import { one_tap_login, authenticate, isAuth, signout} from '../actions/auth';
-
-
-const head = () => {
-   return <Head>
-             <title>Home</title>
-          </Head>
- }
-
-const smallblogList = () => {
-  return [{}, {}, {}, {}].map((blog, i) => {
-       return <BlogSmallCard blog={blog} key={i} />
-  })
-}
-
-const mediumblogList = () => {
-  return [{}, {}, {}, {},{}, {}, {}, {},{}, {}, {}, {},{}, {}, {}, {}].map((blog, i) => {
-       return <BlogMediumCard blog={blog} key={i} />
-  })
-}
-
-const authorList = () => {
-  return [{},{}, {}, {}, {},{}, {}, {}].map((author, i) => {
-    return <AuthorCard key={i} />
-  })
-}
-
-const trendingList = () => {
-  return [{},{}, {}, {}, {},{}].map((blog, i) => {
-    return <TrendingCard key={i} count={i}/>
-  })
-}
+import { blog_list, author_list, trending_list } from '../actions/blog';
 
 
 
-const Home = () => {
+
+const Home = ({ largeBlogs, smallBlogs, mediumBlogs }) => {
+  const [authors, setAuthors] = useState([]);
+  const [trendingBlogs, setTrending] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   useEffect(() => {
     window.onscroll = function() {myFunction()};
     var rightside = document.getElementById("rightbottom");
@@ -59,13 +34,34 @@ const Home = () => {
   })
 
 
+
+  useEffect(() => {
+    author_list()
+    .then(response => {
+      setAuthors(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [])
+
+  useEffect(() => {
+    trending_list()
+    .then(response => {
+      setTrending(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [])
+
+
   const handleOnetapResponse = (response) => {
   const decodedToken = jwt_decode(response.credential)
-    one_tap_login({ googleToken: response.credential, domain: process.env.NEXT_PUBLIC_CLIENT_URL })
+    one_tap_login({ googleToken: response.credential, domain: process.env.NEXT_PUBLIC_DOMAIN_ID })
       .then(result => {
-        console.log(result)
         authenticate(result, () => {
-          // Router.push(`/`)
+          setIsAuthenticated(true)
         })
       })
       .catch((err) => {
@@ -73,28 +69,74 @@ const Home = () => {
       })
   }
 
-
   useEffect(() => {
-
-  window.onload = function () {
-     google.accounts.id.initialize({
-       client_id:process.env.NEXT_PUBLIC_GOOGLE_CLIEND_ID,
-       callback: handleOnetapResponse
-     });
-     google.accounts.id.prompt();
-   }
+    if(!isAuth()){
+      window.onload = function () {
+         google.accounts.id.initialize({
+           client_id:process.env.NEXT_PUBLIC_GOOGLE_CLIEND_ID,
+           callback: handleOnetapResponse
+         });
+         google.accounts.id.prompt();
+       }
+    }
   }, [])
 
+  function HeaderSEO(){
+     return <Head>
+               <title>Home</title>
+            </Head>
+   }
+
+  function SmallblogList(){
+    if(smallBlogs){
+      return smallBlogs.map((blog, i) => {
+           return <BlogSmallCard blog={blog} key={i} />
+      })
+    }else{
+        return <> </>
+    }
+  }
+
+  function MediumblogList(){
+    if(mediumBlogs){
+      return mediumBlogs.map((blog, i) => {
+           return <BlogMediumCard blog={blog} key={i} />
+      })
+    }else{
+       return <> </>
+    }
+  }
+
+  function AuthorList(){
+    if(authors){
+      return authors.map((author, i) => {
+        return <AuthorCard author={author} key={i} />
+      })
+    }else{
+      return <> </>
+    }
+  }
+
+  function TrendingList(){
+    if(trendingBlogs){
+      return trendingBlogs.map((blog, i) => {
+        return <TrendingCard blog={blog} key={i} count={i} />
+      })
+    }else{
+      return <></>
+    }
+  }
+
   return <>
-           {head()}
-           <Layout>
+           <HeaderSEO  />
+           <Layout isAuthenticated={isAuthenticated}>
               <div className="div-container mb-5">
                  <div className="row col">
                     <div className="col-md-4 ">
-                     <BlogLargeCard />
+                     <BlogLargeCard blog={largeBlogs} />
                     </div>
                     <div className="col-md-4">
-                      {smallblogList()}
+                     <SmallblogList />
                     </div>
 
                     <div className="col-md-4">
@@ -102,7 +144,7 @@ const Home = () => {
                         <section>
                             <font className={styles.title1}>LATEST FROM AUTHORS</font>
                             <div className="row col mt-3">
-                             {authorList()}
+                             <AuthorList />
                             </div>
                             <div className="pl-3" style={{ color: 'teal'}}>See more</div>
                         </section>
@@ -118,14 +160,14 @@ const Home = () => {
               <div className="div-container mt-5">
                 <section className={styles.title1}>TRENDING ON APP</section>
                 <div className="row col">
-                   {trendingList()}
+                   <TrendingList />
                 </div>
               </div>
               <hr />
               <div className="mt-5 div-container">
                 <div className="row">
                 <div className="col-md-8">
-                  {mediumblogList()}
+                  <MediumblogList />
                 </div>
                 <div className="col-md-4 d-lg-block d-xl-block d-none d-md-block d-lg-none">
                   <section className="rightbottom" id="rightbottom">
@@ -148,4 +190,21 @@ const Home = () => {
          </>
 }
 
-export default Home;
+
+
+Home.getInitialProps = () => {
+    // let skip = 0;
+    // let limit = 20;
+    return blog_list().then(blog => {
+         let largeBlogs = blog && blog[0];
+         let smallBlogs = blog && blog.slice(1, 5);
+         let mediumBlogs = blog && blog.slice(6);
+         return { largeBlogs,
+                  smallBlogs,
+                  mediumBlogs,
+                }
+        })
+}
+
+
+export default Home

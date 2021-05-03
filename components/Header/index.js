@@ -6,9 +6,14 @@ import { Menu, Dropdown } from 'antd';
 import 'antd/dist/antd.css';
 
 
-const Header = () => {
+const Header = ({ isAuthenticated }) => {
   const [user, setUser] = useState();
 
+ useEffect(() => {
+   if(isAuth()){
+    setUser(isAuth())
+   }
+ }, [isAuthenticated])
 
   const menu = (
     <Menu>
@@ -26,13 +31,14 @@ const Header = () => {
                <h1 className={styles.appname}>App name</h1>
               </div>
               <div className="col-6">
-                  <div className="row justify-content-end">
+                  {user && <div className="row justify-content-end">
+                     
                      <Dropdown overlay={menu}>
                         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                          {user && <img src={user.picture} className={styles.picture} alt="profile picture"  />}
+                         <img src={user[0].picture} className={styles.picture} alt="profile picture"  />
                         </a>
                       </Dropdown>
-                  </div>
+                  </div>}
               </div>
             </div>
          </div>

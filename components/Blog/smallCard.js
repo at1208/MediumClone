@@ -1,9 +1,14 @@
 import styles from '../../styles/BlogSmallCard.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+const readingTime = require('reading-time');
+import moment from 'moment';
 
-const Card = () => {
-  return <>
+
+const Card = ({ blog }) => {
+
+  return <Link href={`/${blog && blog.slug}`}>
            <div className={styles.outercontainer}>
               <div className="row">
                 <div className="col-8">
@@ -13,31 +18,30 @@ const Card = () => {
                          <Image src="/blog.jpeg" width="20px" height="20px" alt="Profile Picture" className="img img-fluid"/>
                      </div>
                      <div className="col">
-                      <font className={styles.name}> Aman Tiwari</font>
+                      <font className={styles.name}>{blog && blog.postedBy && blog.postedBy.full_name}</font>
                       <font className={styles.in}>in</font>
-                      <font className={styles.categoryname}>Javascript</font>
+                      <font className={styles.categoryname}>{blog && blog.categories && blog.categories[0].name}</font>
                      </div>
                      </div>
-                     <Link href="/Creating-a-Design-System-in-React">
-                      <a>
-                        <section className={styles.title}>Creating a Design System in React</section>
-                     </a>
-                    </Link>
-                     <small className={styles.time}>May 26 . 9 min read</small>
+
+                        <section className={styles.title}>{blog && blog.title}</section>
+
+   
+                     <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</small>
                    </div>
                 </div>
                 <div className="col-4">
                    <div className="float-right">
-                     <Link href="/Creating-a-Design-System-in-React">
-                      <a>
-                        <Image src="/blog.jpeg" width="100px" height="100px" alt="Profile Picture" className="img img-fluid"/>
-                      </a>
-                     </Link>
+
+
+                        <LazyLoadImage src={blog && blog.featureImg} width="100px" height="100px" alt="Profile Picture" className="img img-fluid"/>
+
+
                    </div>
                 </div>
               </div>
            </div>
-         </>
+         </Link>
 }
 
 export default Card;

@@ -21,18 +21,6 @@ const Blog = ({ blog }) => {
           </section>
   }
 
-const showTags = () => {
-  let tags  = [{}, {}].map((tag, i) => {
-    return <Link href="/tag/ai" key={i}>
-              <a>
-                <button className={styles.tagcatbtn}>AI</button>
-              </a>
-           </Link>
-  })
-   return  <div className={styles.extras}>
-              {tags}
-           </div>
-}
 
 const showCategories = () => {
   let categories  = [{}, {}].map((category, i) => {
@@ -54,7 +42,7 @@ const showCategories = () => {
             {showAuthor()}
             {renderHTML(blog.body || " ")}
              <div className="row justify-content-center">
-              {showTags()}
+             
               {showCategories()}
              </div>
          </>

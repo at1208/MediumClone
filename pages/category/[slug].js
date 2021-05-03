@@ -6,7 +6,7 @@ const Category = ({ router }) => {
 
   const categoryBlogList = () => {
      return [{}, {}, {}, {}].map((blog, i) => {
-       return <BlogMediumCard key={i} />
+       return;
      })
   }
 

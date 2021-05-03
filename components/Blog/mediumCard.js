@@ -27,10 +27,10 @@ const Card = ({ blog }) => {
 
                           <section className={styles.title}>{blog && blog.title}</section>
                           <section className={styles.excerpt}>{renderHTML(blog && blog.excerpt)}</section>
-                     
+
 
                    </div>
-                   <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || "").text}</small>
+                   <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</small>
                </div>
                <div className="col-md-4">
                   <LazyLoadImage src={blog && blog.featureImg} width="100%" height="100%" alt="Profile Picture" className="img img-fluid"/>

@@ -24,7 +24,7 @@ const Card = ({ blog, count }) => {
                  </div>
                </div>
                   <section className={styles.text}>{blog && blog.title}</section>
-                <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body).text}</small>
+                <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</small>
               </div>
              </div>
            </div>

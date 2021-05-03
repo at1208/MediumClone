@@ -29,7 +29,7 @@ const Card = ({ blog }) => {
                 <section className={styles.subheading}>Read OneZero’s interview with author Anna Wiener</section>
                 </a>
 
-              <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || "").text}</small>
+              <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</small>
            </div>
          </Link>
 }

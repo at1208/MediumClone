@@ -19,6 +19,7 @@ const Home = ({ largeBlogs, smallBlogs, mediumBlogs }) => {
   const [trendingBlogs, setTrending] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+console.log(largeBlogs, smallBlogs, mediumBlogs)
   useEffect(() => {
     window.onscroll = function() {myFunction()};
     var rightside = document.getElementById("rightbottom");

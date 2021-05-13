@@ -9,9 +9,9 @@ const Blog = ({ blog }) => {
     return <section className={styles.usercontainer}>
              <div className="row">
                 <div className="col-8 row">
-                  <img src={blog.postedBy.headshot_url} height={40} width={40} className={styles.authorimg}/>
+                  <img src={blog && blog.postedBy.headshot_url} height={40} width={40} className={styles.authorimg}/>
                   <div>
-                  <font className={styles.authorname}>{blog.postedBy.full_name}</font>
+                  <font className={styles.authorname}>{blog && blog.postedBy.full_name}</font>
                   <font className={styles.postedtime}>{moment(blog.createdAt).fromNow()}</font>
                   </div>
                 </div>
@@ -37,12 +37,12 @@ const showCategories = () => {
 
   return <>
             <h1 className={styles.title}>
-             {blog.title}
+             {blog && blog.title}
             </h1>
             {showAuthor()}
-            {renderHTML(blog.body || " ")}
+            {renderHTML(blog && blog.body || " ")}
              <div className="row justify-content-center">
-             
+
               {showCategories()}
              </div>
          </>

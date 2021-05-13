@@ -32,10 +32,10 @@ const Header = ({ isAuthenticated }) => {
               </div>
               <div className="col-6">
                   {user && <div className="row justify-content-end">
-                     
+
                      <Dropdown overlay={menu}>
                         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                         <img src={user[0].picture} className={styles.picture} alt="profile picture"  />
+                         <img src={user[0] && user[0].picture} className={styles.picture} alt="profile picture"  />
                         </a>
                       </Dropdown>
                   </div>}

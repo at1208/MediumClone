@@ -9,7 +9,7 @@ const Blog = ({ blog }) => {
     return <section className={styles.usercontainer}>
              <div className="row">
                 <div className="col-8 row">
-                  <img src={blog && blog.postedBy.headshot_url} height={40} width={40} className={styles.authorimg}/>
+                  <img src={blog && blog.postedBy.headshot_url} className={styles.authorimg}/>
                   <div>
                   <font className={styles.authorname}>{blog && blog.postedBy.full_name}</font>
                   <font className={styles.postedtime}>{moment(blog.createdAt).fromNow()}</font>

@@ -1,0 +1,16 @@
+.authorImage{
+ border-radius: 50%;
+ width: 64px;
+ height:64px;
+ cursor:pointer;
+}
+.authorname{
+  line-height: 16px!important;
+  font-size: 11px!important;
+  margin-top: 5px!important;
+  color: rgba(41, 41, 41, 1)!important;
+  font-weight: 200!important;
+  white-space:nowrap;
+  overflow:hidden;
+
+}

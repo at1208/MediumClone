@@ -15,7 +15,7 @@ const Card = ({ blog }) => {
                    <div className={styles.left}>
                      <div className="row">
                      <div className={styles.category}>
-                         <Image src="/blog.jpeg" width="20px" height="20px" alt="Profile Picture" className="img img-fluid"/>
+                         {/*<Image src="/blog.jpeg" width="20px" height="20px" alt="Profile Picture" className="img img-fluid"/>*/}
                      </div>
                      <div className="col">
                       <font className={styles.name}>{blog && blog.postedBy && blog.postedBy.full_name}</font>
@@ -23,20 +23,13 @@ const Card = ({ blog }) => {
                       <font className={styles.categoryname}>{blog && blog.categories && blog.categories[0].name}</font>
                      </div>
                      </div>
-
                         <section className={styles.title}>{blog && blog.title}</section>
-
-   
                      <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</small>
                    </div>
                 </div>
                 <div className="col-4">
                    <div className="float-right">
-
-
-                        <LazyLoadImage src={blog && blog.featureImg} width="100px" height="100px" alt="Profile Picture" className="img img-fluid"/>
-
-
+                        <LazyLoadImage src={blog && blog.featureImg}  alt="Profile Picture" className={styles.smallFeatureImage}/>
                    </div>
                 </div>
               </div>

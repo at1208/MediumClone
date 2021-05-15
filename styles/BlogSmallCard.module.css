@@ -13,27 +13,46 @@
 }
 .name{
   font-size: 13px;
-  font-weight: bold;
-  margin-right: 6px;
+  font-weight: 500;
+  max-height: 16px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  padding-right: 4px;
   font-family: sans-serif;
 }
 .categoryname{
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 500;
+  max-height: 16px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  padding-right: 4px;
   font-family: sans-serif;
 }
 .in{
   font-size: 13px;
-  margin-right: 6px;
+  padding-right: 4px;
   font-weight: 500;
-  color: darkgrey;
+  line-height: 16px;
+  color: rgb(117, 117, 117);
   font-family: sans-serif;
 }
 .title{
+  line-height: 20px;
   font-size: 15px;
   padding:5px 0px 5px 0px;
   font-weight: 800;
+  color: rgba(41, 41, 41, 1);
 }
 .time{
-  color: grey;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  color: rgba(117, 117, 117, 1);
+}
+.smallFeatureImage{
+  max-height: 100px;
+  object-fit: cover;
+  max-width: 100px;
+
 }

@@ -10,12 +10,12 @@ const Card = ({ blog, count }) => {
            <div className={styles.outercontainer}>
              <div className="row">
               <div className="col-2">
-                <section className={styles.count}>0{count+1}</section>
+                <span className={styles.count}>0{count+1}</span>
               </div>
               <div className="col-10">
-               <div className="row pt-3 pr-2 pb-2">
+               <div className="row ">
                  <div className={styles.category}>
-                  <Image src="/blog.jpeg" width="25" height="25" alt="Profile Picture" className="img img-fluid"/>
+                  <Image src="/blog.jpeg" width="25" height="25" alt="" className="img img-fluid"/>
                  </div>
                  <div className="col pt">
                   <font className={styles.name}>{blog && blog.postedBy && blog.postedBy.full_name}</font>

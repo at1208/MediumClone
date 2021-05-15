@@ -5,7 +5,7 @@ import styles from '../../styles/Layout.module.css';
 const Layout = ({ children, isAuthenticated }) => {
   return <>
             <Header isAuthenticated={isAuthenticated} />
-            <hr />
+ 
             <div className={styles.layout}>
               {children}
             </div>

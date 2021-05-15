@@ -18,9 +18,9 @@ const Home = () => {
   const [authors, setAuthors] = useState([]);
   const [trendingBlogs, setTrending] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [largeBlogs, setLargeBlogs] = useState([]);
-  const [smallBlogs, setSmallBlogs] = useState([]);
-  const [mediumBlogs, setMediumBlogs] = useState([]);
+  const [largeBlogs, setLargeBlogs] = useState();
+  const [smallBlogs, setSmallBlogs] = useState();
+  const [mediumBlogs, setMediumBlogs] = useState();
 
 
   useEffect(() => {
@@ -146,33 +146,39 @@ const Home = () => {
            <Layout isAuthenticated={isAuthenticated}>
               <div className="div-container mb-5">
                  <div className="row col">
-                    <div className="col-md-4 ">
+                    <div className="col-md-4 col-sm-5 col-lg-4">
                      <BlogLargeCard blog={largeBlogs} />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-8 col-sm-7 col-lg-4">
                      <SmallblogList />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-12 col-lg-4">
                       <div className={styles.rightside}>
-                        <section>
-                            <font className={styles.title1}>LATEST FROM AUTHORS</font>
-                            <div className="row col mt-3">
-                             <AuthorList />
-                            </div>
-                            <div className="pl-3" style={{ color: 'teal'}}>See more</div>
-                        </section>
-                        <section className="mt-5">
-                           <font className={styles.title1}>TOPICS TO READ</font>
-                           <div className="pl-3" style={{ color: 'teal'}}>See more</div>
-                        </section>
+                         <div className="row col">
+                           <div className="col-md-6 col-sm-6 col-lg-12">
+                           <section>
+                               <font className={styles.title1}>LATEST FROM AUTHORS</font>
+                               <div className="row col mt-3">
+                                <AuthorList />
+                               </div>
+                               <div className="pl-3" style={{ color: 'teal'}}>See more</div>
+                           </section>
+                           </div>
+                           <div className="col-md-6 col-sm-6 col-lg-12">
+                           <section className="mt-5">
+                              <font className={styles.title1}>TOPICS TO READ</font>
+                              <div className="pl-3" style={{ color: 'teal'}}>See more</div>
+                           </section>
+                           </div>
+                         </div>
                       </div>
                     </div>
                  </div>
               </div>
               <hr />
               <div className="div-container mt-5">
-                <section className={styles.title1}>TRENDING ON APP</section>
+                <section className={styles.title1}> TRENDING ON APP</section>
                 <div className="row col">
                    <TrendingList />
                 </div>

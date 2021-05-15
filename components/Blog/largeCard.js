@@ -10,12 +10,12 @@ const Card = ({ blog }) => {
            <div className={styles.outercontainer}>
 
                <a>
-                  <LazyLoadImage effect="blur" src={blog && blog.featureImg} width="100%" height="100%" alt="Profile Picture" className="img img-fluid"/>
+                  <LazyLoadImage effect="blur" src={blog && blog.featureImg} width="100%" height="100%" alt="" className="img img-fluid"/>
                </a>
 
               <div className="row pt-3 pr-2 pb-2">
                 <div className={styles.category}>
-                 <Image src="/blog.jpeg" width="25" height="25" alt="Profile Picture" className="img img-fluid"/>
+                 <Image src="/blog.jpeg" width="25" height="25" alt="" className="img img-fluid"/>
                 </div>
                 <div className="col pt-1">
                  <font className={styles.name}>{blog && blog.postedBy && blog.postedBy.full_name}</font>
@@ -26,7 +26,7 @@ const Card = ({ blog }) => {
 
                 <a>
                 <section className={styles.title}>{blog && blog.title}</section>
-                <section className={styles.subheading}>Read OneZero’s interview with author Anna Wiener</section>
+              {/*<section className={styles.subheading}>Read OneZero’s interview with author Anna Wiener</section>*/}
                 </a>
 
               <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</small>

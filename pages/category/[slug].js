@@ -1,11 +1,14 @@
 import { withRouter } from 'next/router';
 import Layout from '../../components/Layout';
-// import BlogMediumCard from '../../components/Blog/mediumCard';
+import BlogMediumCard from '../../components/Blog/Cards/mediumCard';
 
 const Category = ({ router }) => {
 
+
   const categoryBlogList = () => {
-     return [{}, {}, {}, {}].map((blog, i) => { return "" })
+     return [{}, {}, {}, {}].map((blog, i) => {
+        return <BlogMediumCard />
+      })
   }
 
   return <>

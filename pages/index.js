@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 // import jwt_decode from 'jwt-decode'
 import styles from '../styles/Home.module.css';
-import BlogLargeCard from '../components/Blog/largeCard';
-import BlogSmallCard from '../components/Blog/smallCard';
-import BlogMediumCard from '../components/Blog/mediumCard';
-import AuthorCard from '../components/Blog/authorCard';
-import TrendingCard from '../components/Blog/trendingCard';
+import BlogLargeCard from '../components/Blog/Cards/largeCard';
+import BlogSmallCard from '../components/Blog/Cards/smallCard';
+import BlogMediumCard from '../components/Blog/Cards/mediumCard';
+import AuthorCard from '../components/Blog/Cards/authorCard';
+import TrendingCard from '../components/Blog/Cards/trendingCard';
 import Layout from '../components/Layout';
 import { one_tap_login, authenticate, isAuth} from '../actions/auth';
 import { blog_list, author_list, trending_list } from '../actions/blog';

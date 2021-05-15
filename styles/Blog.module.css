@@ -60,14 +60,14 @@
 
 }
 .authorContainer{
-  padding: 8px 0px 0px 10px;
+  padding: 7px 0px 0px 10px;
 }
 .authorimg{
   width: 48px!important;
   height: 48px!important;
 }
 .usercontainer{
-  padding: 30px 0px 30px 0px;
+  padding: 30px 0px 0px 0px;
 }
 .leftside{
   padding: 50px;
@@ -82,13 +82,21 @@
   font-weight: 500;
 }
 .aboutauthor{
+  letter-spacing: -0.003em;
+  line-height: 20px;
+  margin-top: 1.56em;
   font-size: 14px;
-  font-weight: 300;
-  color: grey;
+  margin-bottom: -0.46em;
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-style: normal;
+  word-break: break-word;
+  color: rgba(117, 117, 117, 1);
+  font-weight: 400;
 }
 .tagcatbtn{
   font-size: 13px;
   border: 0px solid white;
+  text-transform: capitalize!important;
   min-width: 50px;
   background-color: lightgrey;
   padding: 5px 10px 5px 10px;

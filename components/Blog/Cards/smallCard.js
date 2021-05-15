@@ -1,4 +1,4 @@
-import styles from '../../styles/BlogSmallCard.module.css';
+import styles from '../../../styles/BlogSmallCard.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LazyLoadImage } from 'react-lazy-load-image-component';

@@ -10,9 +10,9 @@ const Author = ({ author }) => {
              <div>
              <LazyLoadImage src={author.postedBy.headshot_url} alt="" className={styles.authorImage}/>
              </div>
-             <Typography  noWrap className={styles.authorname}>
+             <label  noWrap className={styles.authorname}>
               {author.postedBy.full_name}
-            </Typography>
+            </label>
            </div>
   }else{
     return <>

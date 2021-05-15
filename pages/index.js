@@ -7,6 +7,10 @@ import BlogSmallCard from '../components/Blog/Cards/smallCard';
 import BlogMediumCard from '../components/Blog/Cards/mediumCard';
 import AuthorCard from '../components/Blog/Cards/authorCard';
 import TrendingCard from '../components/Blog/Cards/trendingCard';
+import LargeCardSkeleton from '../components/Blog/Cards/largeCardSkeleton'
+import SmallCardSkeleton from '../components/Blog/Cards/smallCardSkeleton'
+import AuthorCardSkeleton from '../components/Blog/Cards/authorCardSkeleton'
+
 import Layout from '../components/Layout';
 import { one_tap_login, authenticate, isAuth} from '../actions/auth';
 import { blog_list, author_list, trending_list } from '../actions/blog';
@@ -140,17 +144,17 @@ const Home = () => {
       return <></>
     }
   }
-
+console.log()
   return <>
            <HeaderSEO  />
            <Layout isAuthenticated={isAuthenticated}>
               <div className="div-container mb-5">
                  <div className="row col">
                     <div className="col-md-4 col-sm-5 col-lg-4">
-                     <BlogLargeCard blog={largeBlogs} />
+                     {largeBlogs?<BlogLargeCard blog={largeBlogs} />: <LargeCardSkeleton />}
                     </div>
                     <div className="col-md-8 col-sm-7 col-lg-4">
-                     <SmallblogList />
+                     {smallBlogs?<SmallblogList />: <><SmallCardSkeleton /><SmallCardSkeleton /><SmallCardSkeleton /></>}
                     </div>
 
                     <div className="col-md-12 col-lg-4">
@@ -159,8 +163,15 @@ const Home = () => {
                            <div className="col-md-6 col-sm-6 col-lg-12">
                            <section>
                                <font className={styles.title1}>LATEST FROM AUTHORS</font>
-                               <div className="row col mt-3">
-                                <AuthorList />
+                               <div className="row col">
+                                {authors?<AuthorList />:<div className="row col"><AuthorCardSkeleton />
+                                <AuthorCardSkeleton />
+                                <AuthorCardSkeleton />
+                                <AuthorCardSkeleton />
+                                <AuthorCardSkeleton />
+                                <AuthorCardSkeleton />
+                                <AuthorCardSkeleton />
+                                <AuthorCardSkeleton /></div>}
                                </div>
                                <div className="pl-3" style={{ color: 'teal'}}>See more</div>
                            </section>

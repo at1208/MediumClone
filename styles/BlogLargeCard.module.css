@@ -3,7 +3,7 @@
  padding-left: 15px;
 }
 .title{
-  font-size: 22px;
+font-size: 22px;
 -webkit-line-clamp:2;
 -webkit-box-orient:vertical;
 display:-webkit-box;
@@ -18,14 +18,21 @@ font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-top: 5px;
 }
 .name{
-  font-size: 14px;
-  font-weight: bold;
-  margin-right: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  max-height: 16px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  padding-right: 4px;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .categoryname{
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 500;
+  max-height: 16px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  padding-right: 4px;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .in{

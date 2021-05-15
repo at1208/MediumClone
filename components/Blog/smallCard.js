@@ -29,7 +29,7 @@ const Card = ({ blog }) => {
                 </div>
                 <div className="col-4">
                    <div className="float-right">
-                        <LazyLoadImage src={blog && blog.featureImg}  alt="Profile Picture" className={styles.smallFeatureImage}/>
+                        <LazyLoadImage src={blog && blog.featureImg}  alt="" className={styles.smallFeatureImage}/>
                    </div>
                 </div>
               </div>

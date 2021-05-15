@@ -11,7 +11,7 @@ const Card = ({ blog }) => {
   return <Link href={`/${blog && blog.slug}`}>
            <div className={styles.outercontainer}>
              <div className="row col">
-               <div className="col-md-8">
+               <div className="col-md-8 col-sm-8 col-8">
                    <div className="row">
                      <div className={styles.category}>
                       <Image src="/blog.jpeg" width="25" height="25" alt="" className="img img-fluid"/>
@@ -23,13 +23,15 @@ const Card = ({ blog }) => {
                      </div>
                    </div>
                    <div>
-                          <section className={styles.title}>{blog && blog.title}</section>
-                          <section className={styles.excerpt}>{renderHTML(blog && blog.excerpt)}</section>
+                      <section className={styles.title}>{blog && blog.title}</section>
+                      <div className="d-none d-sm-block">
+                        <section className={styles.excerpt}>{renderHTML(blog && blog.excerpt)}</section>
+                      </div>
                    </div>
                    <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</small>
                </div>
-               <div className="col-md-4">
-                  <LazyLoadImage src={blog && blog.featureImg} width="100%" height="100%" alt="" className="img img-fluid"/>
+               <div className="col-md-4 col-sm-4 col-4">
+                  <LazyLoadImage src={blog && blog.featureImg}   alt=""  className={styles.featureImg} />
                </div>
              </div>
            </div>

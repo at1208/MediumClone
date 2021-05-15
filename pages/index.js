@@ -151,10 +151,10 @@ console.log()
               <div className="div-container mb-5">
                  <div className="row col">
                     <div className="col-md-4 col-sm-5 col-lg-4">
-                     {!largeBlogs?<BlogLargeCard blog={largeBlogs} />: <LargeCardSkeleton />}
+                     {largeBlogs?<BlogLargeCard blog={largeBlogs} />: <LargeCardSkeleton />}
                     </div>
                     <div className="col-md-8 col-sm-7 col-lg-4">
-                     {!smallBlogs?<SmallblogList />: <><SmallCardSkeleton /><SmallCardSkeleton /><SmallCardSkeleton /></>}
+                     {smallBlogs?<SmallblogList />: <><SmallCardSkeleton /><SmallCardSkeleton /><SmallCardSkeleton /></>}
                     </div>
 
                     <div className="col-md-12 col-lg-4">

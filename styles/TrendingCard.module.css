@@ -61,6 +61,7 @@
 .count{
   line-height: 36px;
   font-size: 30px;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: rgba(230, 230, 230, 1);
 }

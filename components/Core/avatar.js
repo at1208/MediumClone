@@ -5,57 +5,58 @@ export const avatarStyle = (index) => {
   if (index % 5 === 0) {
     return {
       backgroundColor: '#FCF0EF',
-      width: '25px',
-      fontSize:"15px",
+      width: '60px',
+      fontSize:"25px",
       textTransform:"capitalize",
-      height: '25px',
+      height: '60px',
       margin:"0px 3px 0px 3px",
       color: '#E66E68',
-      borderRadius: '8px',
+      borderRadius: '30px',
     };
   } else if (index % 3 === 0) {
     return {
       backgroundColor: '#FFFABB',
-      width: '25px',
-      fontSize:"15px",
+      width: '60px',
+      fontSize:"25px",
       textTransform:"capitalize",
-      height: '25px',
+      height: '60px',
       margin:"0px 3px 0px 3px",
       color: '#FFD502',
-      borderRadius: '8px',
+      borderRadius: '30px',
     };
   } else if (index % 2 === 0) {
     return {
       backgroundColor: '#CAFFE6',
-      width: '25px',
-      fontSize:"15px",
-      textTransform:"capitalize",
-      height: '25px',
+      width: '60px',
+      fontSize:"25px",
+      textTransform:"uppercase",
+      height: '60px',
       margin:"0px 3px 0px 3px",
       color: '#34F89C',
-      borderRadius: '8px',
+      borderRadius: '30px',
     };
   } else if (index % 1 === 0) {
     return {
       backgroundColor: '#CAF0FF',
-      width: '25px',
-      fontSize:"15px",
+      width: '60px',
+      fontSize:"25px",
       margin:"0px 3px 0px 3px",
       textTransform:"capitalize",
-      height: '25px',
+      height: '60px',
       color: '#3BC8FF',
-      borderRadius: '8px',
+      borderRadius: '30px',
     };
   }
 };
 
 
 
-const AvatarContainer = ({ name }) => {
+const AvatarContainer = ({ name, src }) => {
+  let naam = name.split(" ");
   if(name){
     return <>
-            <Avatar style={avatarStyle(name.length)} variant="square">
-              {name.slice(0,2)}
+            <Avatar style={avatarStyle(name.length)} variant="square" src={src}>
+              {naam[0][0]}{naam[1][0]}
             </Avatar>
            </>
   }else{

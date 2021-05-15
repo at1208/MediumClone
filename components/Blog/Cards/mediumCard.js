@@ -26,7 +26,7 @@ const Card = ({ blog }) => {
                      <div>
                         <section className={styles.title}>{blog.title}</section>
                         <div className="d-none d-sm-block">
-                          <section className={styles.excerpt}>{renderHTML(blog.excerpt)}</section>
+                          <div className={styles.excerpt}>{renderHTML(blog.excerpt)}</div>
                         </div>
                      </div>
                      <small className={styles.time}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog.body || " ").text}</small>

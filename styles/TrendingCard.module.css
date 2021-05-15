@@ -1,6 +1,14 @@
 .title{
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  display:-webkit-box;
+  text-overflow:ellipsis;
+  overflow:hidden;
+ color: rgba(41, 41, 41, 1);
+ line-height: 20px;
+ font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .subheading{
   font-size: 19px;
@@ -24,7 +32,7 @@
   line-height: 16px;
   text-overflow: ellipsis;
   padding-right: 4px;
-  font-family: sans-serif;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .categoryname{
   font-size: 13px;
@@ -33,7 +41,7 @@
   line-height: 16px;
   text-overflow: ellipsis;
   padding-right: 4px;
-  font-family: sans-serif;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .in{
   font-size: 13px;
@@ -41,7 +49,7 @@
   font-weight: 500;
   line-height: 16px;
   color: rgb(117, 117, 117);
-  font-family: sans-serif;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .text{
   line-height: 20px;

@@ -18,7 +18,7 @@
   line-height: 16px;
   text-overflow: ellipsis;
   padding-right: 4px;
-  font-family: sans-serif;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .categoryname{
   font-size: 13px;
@@ -27,7 +27,7 @@
   line-height: 16px;
   text-overflow: ellipsis;
   padding-right: 4px;
-  font-family: sans-serif;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .in{
   font-size: 13px;
@@ -35,7 +35,7 @@
   font-weight: 500;
   line-height: 16px;
   color: rgb(117, 117, 117);
-  font-family: sans-serif;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .title{
   line-height: 20px;

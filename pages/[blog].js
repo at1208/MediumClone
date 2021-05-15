@@ -7,7 +7,7 @@ import BlogSmallCard from '../components/Blog/smallCard';
 import Router from 'next/router';
 import styles from '../styles/Blog.module.css';
 import { read_blog } from '../actions/blog';
-import { one_tap_login, authenticate, isAuth, signout} from '../actions/auth';
+import { one_tap_login, authenticate, isAuth} from '../actions/auth';
 
 
 
@@ -58,9 +58,9 @@ const Blog = ({ query, router, blog, error }) => {
          });
 
          google.accounts.id.prompt((notification) => {
-           if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-
-           }
+           // if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+           //   console.log()
+           // }
        });
        }
   }

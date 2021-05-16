@@ -174,15 +174,15 @@ const Blog = ({ query, router, blog, error }) => {
             {head()}
             <Layout isAuthenticated={isAuthenticated}>
              <div className="row col justify-content-center">
-                 <div className="col-md-3 d-lg-block d-xl-block d-none d-md-block d-lg-none">
+                 <div className="col-md-3  col-lg-3 d-lg-block d-xl-block d-none d-md-block d-lg-none">
                    <div className="lefttop" id="lefttop">
                     {show && showAuthor()}
                    </div>
                  </div>
-                 <div className="col-md-6">
+                 <div className="col-md-7 col-sm-12 col-lg-6">
                    <BlogDetail blog={blog} />
                  </div>
-                 <div className="col-md-3">
+                 <div className="col-md-2  col-lg-3">
                  </div>
              </div>
              <br /><br />

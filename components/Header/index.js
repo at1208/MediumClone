@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from '../../styles/Header.module.css';
 import { isAuth, signout } from '../../actions/auth';
 import { Menu, Dropdown } from 'antd';
-
+import 'antd/dist/antd.css';
 
 
 const Header = ({ isAuthenticated }) => {

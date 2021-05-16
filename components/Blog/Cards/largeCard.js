@@ -25,7 +25,7 @@ const Card = ({ blog }) => {
 
                   <a>
                   <section className={styles.title}>{blog.title}</section>
-                {/*<section className={styles.subheading}>Read OneZero’s interview with author Anna Wiener</section>*/}
+                <section className={styles.subheading}>Read OneZero’s interview with author Anna Wiener</section>
                   </a>
                 <small className={styles.time}>{moment(blog.createdAt).format("MMM D")}  . {readingTime(blog.body || " ").text}</small>
                 <br /><br />

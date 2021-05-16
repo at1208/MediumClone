@@ -68,7 +68,7 @@ const Blog = ({ query, router, blog, error }) => {
     }, [])
 
     useEffect(() =>{
-      related_blogs(blog)
+      related_blogs({ blog: blog })
         .then((value) => {
            setRelatedBlogList(value)
         })

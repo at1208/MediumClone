@@ -3,6 +3,7 @@
   /* min-width: 350px; */
   padding-right: 15px;
   padding-left: 15px;
+  cursor: pointer;
 }
 .category{
   margin-right: 10px;

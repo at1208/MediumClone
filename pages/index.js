@@ -219,7 +219,7 @@ const Home = () => {
               </div>
               <hr />
               <div className="div-container mt-5">
-                <section className={styles.title1}> TRENDING ON APP</section>
+                <section className={styles.title3}> TRENDING ON APP</section>
                 <div className="row col">
                    <TrendingList />
                 </div>

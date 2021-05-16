@@ -24,6 +24,7 @@
 }
 .outercontainer{
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .name{
   font-size: 13px;

@@ -1,6 +1,7 @@
 .outercontainer{
  padding-right: 15px;
  padding-left: 15px;
+ cursor: pointer;
 }
 .title{
 font-size: 22px;

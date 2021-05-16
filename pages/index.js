@@ -11,6 +11,7 @@ import TrendingCard from '../components/Blog/Cards/trendingCard';
 import LargeCardSkeleton from '../components/Blog/Cards/largeCardSkeleton'
 import SmallCardSkeleton from '../components/Blog/Cards/smallCardSkeleton'
 import AuthorCardSkeleton from '../components/Blog/Cards/authorCardSkeleton'
+import WbIncandescentIcon from '@material-ui/icons/WbIncandescent';
 
 import Layout from '../components/Layout';
 import { one_tap_login, authenticate, isAuth} from '../actions/auth';
@@ -233,6 +234,20 @@ const Home = () => {
                 <div className="col-md-4 d-lg-block d-xl-block d-none d-md-block d-lg-none">
                   <section className="rightbottom" id="rightbottom">
                      <div className={styles.rightContainer}>
+                       <div className={styles.rc}>
+                         <span><WbIncandescentIcon className={styles.ideaIcon}/></span>
+                         <label className={styles.exploreText}>Explore our IDEAS</label>
+                       </div>
+                       <div className="row col">
+                         <div className="col-md-6 col-sm-6 col-lg-6 col-6 p-2">
+                            <img src="/geeksocean.svg"
+                              height={55}
+                              onClick={() => window.location = "http://geeksocean.com"}
+                              className={styles.logo} />
+                         </div>
+                         <div className="col-md-6 col-sm-6 col-lg-6 col-6 p-2">
+                         </div>
+                       </div>
                      </div>
                      <div className="row">
                        <span className={styles.field}>Help</span>

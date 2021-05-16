@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-// import jwt_decode from 'jwt-decode'
+import Link from 'next/link'
+import { Box, Typography } from '@material-ui/core';
 import styles from '../styles/Home.module.css';
 import BlogLargeCard from '../components/Blog/Cards/largeCard';
 import BlogSmallCard from '../components/Blog/Cards/smallCard';
@@ -14,17 +15,18 @@ import AuthorCardSkeleton from '../components/Blog/Cards/authorCardSkeleton'
 import Layout from '../components/Layout';
 import { one_tap_login, authenticate, isAuth} from '../actions/auth';
 import { blog_list, author_list, trending_list } from '../actions/blog';
-
+import {random_categories } from '../actions/category';
 
 
 
 const Home = () => {
-  const [authors, setAuthors] = useState([]);
-  const [trendingBlogs, setTrending] = useState([]);
+  const [authors, setAuthors] = useState();
+  const [trendingBlogs, setTrending] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [largeBlogs, setLargeBlogs] = useState();
   const [smallBlogs, setSmallBlogs] = useState();
   const [mediumBlogs, setMediumBlogs] = useState();
+  const [categories, setCategories] = useState();
 
 
   useEffect(() => {
@@ -71,6 +73,14 @@ const Home = () => {
     .catch(err => {
       console.log(err)
     })
+
+    random_categories()
+      .then(response => {
+         setCategories(response)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }, [])
 
 
@@ -144,7 +154,24 @@ const Home = () => {
       return <></>
     }
   }
-console.log()
+
+  function ReadByCategories(){
+    if(categories){
+      return categories.map((item, i) => {
+        return <>
+               <Box p={0}>
+               <Link href={`/category/${item.slug}`}>
+                <a>
+                  <Typography variant="body1" className={styles.categoryName}>{item.name}</Typography>
+                </a>
+               </Link>
+               <br />
+                <hr />
+               </Box>
+              </>
+      })
+    }
+  }
   return <>
            <HeaderSEO  />
            <Layout isAuthenticated={isAuthenticated}>
@@ -161,8 +188,9 @@ console.log()
                       <div className={styles.rightside}>
                          <div className="row col">
                            <div className="col-md-6 col-sm-6 col-lg-12">
-                           <section>
+                           <div>
                                <font className={styles.title1}>LATEST FROM AUTHORS</font>
+                               <br /> <br />
                                <div className="row col">
                                 {authors?<AuthorList />:<div className="row col"><AuthorCardSkeleton />
                                 <AuthorCardSkeleton />
@@ -174,11 +202,13 @@ console.log()
                                 <AuthorCardSkeleton /></div>}
                                </div>
                                <div className="pl-3" style={{ color: 'teal'}}>See more</div>
-                           </section>
+                           </div>
                            </div>
                            <div className="col-md-6 col-sm-6 col-lg-12">
                            <section className="mt-5">
                               <font className={styles.title1}>TOPICS TO READ</font>
+                              <br />  <br />
+                               {categories?ReadByCategories():<SmallCardSkeleton />}
                               <div className="pl-3" style={{ color: 'teal'}}>See more</div>
                            </section>
                            </div>

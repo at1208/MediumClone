@@ -5,9 +5,15 @@
 
 }
 
+@media (min-width:991px) {
+  .rightside{
+    padding-left: 25px;
+    border-left: 1px solid rgba(230, 230, 230, 1)
+  }
+}
 .title1{
   text-transform: uppercase;
-  padding-bottom: 17px;
+  /* padding-bottom: 17px; */
   padding-left: 15px;
   line-height: 16px;
   font-weight: 700;
@@ -26,4 +32,11 @@
   font-size: 13px;
   color: grey;
   font-weight: 400;
+}
+.categoryName{
+  font-weight: bold!important;
+  text-transform: capitalize!important;
+  color: rgb(41, 41, 41, 1)!important;
+  padding-left: 15px!important;
+  font-size: 16px!important;
 }

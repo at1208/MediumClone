@@ -45,6 +45,9 @@ const Blog = ({ blog }) => {
                {blog.title}
               </h1>
                 {showAuthor()}
+              <div >
+                <img src={blog.featureImg} className="img img-fluid mt-5"/>
+              </div>
                <div className={styles.body}>{renderHTML(blog.body || " ")}</div>
                <div className="row justify-content-center">
                 {showCategories()}

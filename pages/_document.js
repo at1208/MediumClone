@@ -8,7 +8,18 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
       <Head>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="apple-mobile-web-app-capable" content="yes"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="yes"/>
+      <meta name="apple-mobile-web-app-title" content="ReadiFly"/>
+      <meta name="p:domain_verify" content="b2666a47ce2019ef96afa5b4b91da6a2"/>
+      <link rel="alternate" href="https://amanread.netlify.app" hrefLang="en-us" />
+      <link defer rel="dns-prefetch" href="https://amanread.netlify.app" />
+      <link defer rel="preconnect" href="https://amanread.netlify.app" crossorigin />
+      <link defer rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
       <script src="https://accounts.google.com/gsi/client" async defer />
+      
       </Head>
         <body>
           <Main />

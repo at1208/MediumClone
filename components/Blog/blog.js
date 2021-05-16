@@ -5,7 +5,7 @@ import Image from 'next/image'
 import moment from 'moment';
 import { Avatar } from '@material-ui/core';
 const readingTime = require('reading-time');
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const Blog = ({ blog }) => {
@@ -46,7 +46,7 @@ const Blog = ({ blog }) => {
               </h1>
                 {showAuthor()}
               <div >
-                <img src={blog.featureImg} className="img img-fluid mt-5"/>
+                <LazyLoadImage src={blog.featureImg} className="img img-fluid mt-5"/>
               </div>
                <div className={styles.body}>{renderHTML(blog.body || " ")}</div>
                <div className="row justify-content-center">

@@ -6,7 +6,7 @@ import BlogDetail from '../components/Blog/blog';
 import BlogSmallCard from '../components/Blog/Cards/smallCard';
 import Router from 'next/router';
 import styles from '../styles/Blog.module.css';
-import { read_blog } from '../actions/blog';
+import { read_blog, related_blogs } from '../actions/blog';
 import { one_tap_login, authenticate, isAuth} from '../actions/auth';
 
 
@@ -16,6 +16,7 @@ const Blog = ({ query, router, blog, error }) => {
   if(blog){
     const [show, setShow] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [relatedBlogList, setRelatedBlogList] = useState();
 
     useEffect(() => {
       window.onscroll = function() {myFunction()};
@@ -66,6 +67,16 @@ const Blog = ({ query, router, blog, error }) => {
     }
     }, [])
 
+    useEffect(() =>{
+      related_blogs(blog)
+        .then((value) => {
+           setRelatedBlogList(value)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }, [])
+
 
 
     function showAuthor(){
@@ -84,13 +95,18 @@ const Blog = ({ query, router, blog, error }) => {
 
 
     function relatedBlogs(){
-       return [{},{}, {}, {}, {},{}].map((blog, i) => {
-         return  <div className="col-md-4 col-sm-6" key={i}>
-                   <div className={styles.eachblog}>
-                      <BlogSmallCard key={i} />
-                   </div>
-                 </div>
-       })
+      if(relatedBlogList){
+        return relatedBlogList.map((blog, i) => {
+          return  <div className="col-md-4 col-sm-6" key={i}>
+                    <div className={styles.eachblog}>
+                       <BlogSmallCard key={i} blog={blog} />
+                    </div>
+                  </div>
+        })
+      }else{
+        return <>
+               </>
+      }
     }
 
 

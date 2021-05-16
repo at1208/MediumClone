@@ -1,14 +1,19 @@
 import Layout from '../components/Layout';
-import Head from 'next/head';
+import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react';
 import { withRouter } from 'next/router';
 import BlogDetail from '../components/Blog/blog';
-import BlogSmallCard from '../components/Blog/Cards/smallCard';
+import BlogHead from '../components/Blog/blogHead';
 import Router from 'next/router';
 import styles from '../styles/Blog.module.css';
 import { read_blog, related_blogs } from '../actions/blog';
 import { one_tap_login, authenticate, isAuth} from '../actions/auth';
 
+
+const BlogSmallCard = dynamic(
+  () => import('../components/Blog/Cards/smallCard'),
+   { ssr: false }
+)
 
 
 
@@ -58,11 +63,6 @@ const Blog = ({ query, router, blog, error }) => {
              client_id:process.env.NEXT_PUBLIC_GOOGLE_CLIEND_ID,
              callback: handleOnetapResponse
            });
-         //   google.accounts.id.prompt((notification) => {
-         //     // if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-         //     //   console.log()
-         //     // }
-         // });
          }
     }
     }, [])
@@ -109,69 +109,8 @@ const Blog = ({ query, router, blog, error }) => {
       }
     }
 
-
-      const BlogSchema = (blog) => {
-        return { "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": `${process.env.NEXT_PUBLIC_DOMAIN}/blogs/${"query.slug"}`
-        },
-        "headline": "blog.title",
-        "image": `${process.env.NEXT_PUBLIC_API}/blog/photo/${"blog.slug"}`,
-        "author": {
-          "@type": "Person",
-          "name": "blog.postedBy.name"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Geeksocean.com",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://geeksocean.com/static/images/Logo.jpg",
-            "width": 60,
-            "height": 60
-          }
-        },
-        "datePublished": "blog.createdAt",
-        "dateModified": "blog.updatedAt"
-        }
-      }
-
-      const head = () => (
-          <Head>
-              <title>
-                  {blog.title} | {process.env.NEXT_PUBLIC_APP_NAME}
-              </title>
-              <meta name="description" content={"blog.mdesc"} />
-              <link rel="canonical" href={`${process.env.NEXT_PUBLIC_DOMAIN}/blogs/${"query.slug"}`} />
-              <meta property="og:title" content={`${"blog.title"}| ${process.env.NEXT_PUBLIC_APP_NAME}`} />
-              <meta property="og:description" content={"blog.mdesc"} />
-              <meta property="og:type" content="website" />
-              <meta property="og:url" content={`${process.env.NEXT_PUBLIC_DOMAIN}/blogs/${"query.slug"}`} />
-              <meta property="og:site_name" content={`${process.env.NEXT_PUBLIC_APP_NAME}`} />
-              <meta property="og:image" content={`${process.env.NEXT_PUBLIC_API}/blog/photo/${"blog.slug"}`} />
-              <meta property="og:image:secure_url" content={`${process.env.NEXT_PUBLIC_API}/blog/photo/${"blog.slug"}`} />
-              <meta property="og:image:type" content="image/jpg"  alt='author'/>
-              <meta property="fb:app_id" content={`${process.env.NEXT_PUBLIC_FB_APP_ID}`} />
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:site" content="@geeks_ocean" />
-              <meta name="twitter:account_id" content="1244566301244190720" />
-              <meta name="twitter:title" content={`${"blog.title"}| ${process.env.NEXT_PUBLIC_APP_NAME}`} />
-              <meta name="twitter:description" content={"blog.mdesc"} />
-              <meta name="twitter:creator" content={"blog.postedBy.name"} />
-              <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_API}/blog/photo/${"blog.slug"}`} />
-              <script
-                type='application/ld+json'
-                defer
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(BlogSchema(blog))}}
-            />
-          </Head>
-      );
-
-
     return <>
-            {head()}
+            <BlogHead blog={blog} />
             <Layout isAuthenticated={isAuthenticated}>
              <div className="row col justify-content-center">
                  <div className="col-md-3  col-lg-3 d-lg-block d-xl-block d-none d-md-block d-lg-none">

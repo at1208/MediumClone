@@ -1,12 +1,15 @@
 import styles from '../../styles/Blog.module.css';
+import dynamic from 'next/dynamic'
 import renderHTML from 'react-render-html';
 import Link from 'next/link';
-import Image from 'next/image'
 import moment from 'moment';
-import { Avatar } from '@material-ui/core';
 const readingTime = require('reading-time');
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
+const Avatar = dynamic(
+  () => import('@material-ui/core/Avatar'),
+   { ssr: false }
+)
 
 const Blog = ({ blog }) => {
   if(blog){
@@ -46,7 +49,7 @@ const Blog = ({ blog }) => {
               </h1>
                 {showAuthor()}
               <div >
-                <LazyLoadImage src={blog.featureImg} className="img img-fluid mt-5"/>
+                <LazyLoadImage src={blog.featureImg} className="img img-fluid mt-5" width="100%" height="100%" />
               </div>
                <div className={styles.body}>{renderHTML(blog.body || " ")}</div>
                <div className="row justify-content-center">

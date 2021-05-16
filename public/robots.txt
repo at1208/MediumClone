@@ -1,0 +1,6 @@
+Sitemap: http://amanread.netlify.app
+
+User-agent: *
+Allow: /*
+
+Disallow: 

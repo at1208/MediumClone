@@ -17,7 +17,7 @@ const Blog = ({ blog }) => {
       return <section className={styles.usercontainer}>
                <div className="row">
                   <div className="col-8 row">
-                    <Avatar  variant="circular" src={blog.postedBy.headshot_url} className={styles.authorimg}/>
+                    <Avatar  variant="circular" src={blog.postedBy.headshot_url} alt="" className={styles.authorimg}/>
                     <div className={styles.authorContainer}>
                       <font className={styles.authorname}>{blog.postedBy.full_name}</font>
                       <font className={styles.postedtime}>{moment(blog && blog.createdAt).format("MMM D")}  . {readingTime(blog && blog.body || " ").text}</font>
@@ -49,7 +49,7 @@ const Blog = ({ blog }) => {
               </h1>
                 {showAuthor()}
               <div >
-                <LazyLoadImage src={blog.featureImg} className="img img-fluid mt-5" width="100%" height="100%" />
+                <LazyLoadImage src={blog.featureImg} className="img img-fluid mt-5" width="100%" height="100%" alt="feature image" />
               </div>
                <div className={styles.body}>{renderHTML(blog.body || " ")}</div>
                <div className="row justify-content-center">

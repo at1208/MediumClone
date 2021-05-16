@@ -7,7 +7,7 @@ import BlogHead from '../components/Blog/blogHead';
 import Layout from '../components/Layout';
 import styles from '../styles/Blog.module.css';
 import { read_blog } from '../actions/blog';
- 
+
 
 
 const RelatedBlogs = dynamic(
@@ -47,7 +47,7 @@ const Blog = ({ query, blog }) => {
             </div>
             <br /><br />
             <div className={styles.morecontainer}>
-            <h3 className={styles.moretitle}>More from App</h3>
+            <label className={styles.moretitle}>More from App</label>
             <br />
             <hr />
             <div className="row col">

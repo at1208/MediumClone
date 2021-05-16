@@ -15,7 +15,7 @@ const Card = ({ blog }) => {
                    <div className={styles.left}>
                      <div className="row">
                      <div className={styles.category}>
-                         {/*<Image src="/blog.jpeg" width="20px" height="20px" alt="Profile Picture" className="img img-fluid"/>*/}
+                     
                      </div>
                      <div className="col">
                       <font className={styles.name}>{blog && blog.postedBy && blog.postedBy.full_name}</font>

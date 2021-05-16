@@ -14,7 +14,7 @@ const Card = ({ blog }) => {
                  </a>
                 <div className="row pt-3 pr-2 pb-2">
                   <div className={styles.category}>
-                   <Image src="/blog.jpeg" width="25" height="25" alt="" className="img img-fluid"/>
+                   
                   </div>
                   <div className="col pt-1">
                    <font className={styles.name}>{blog.postedBy.full_name}</font>

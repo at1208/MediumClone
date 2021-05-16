@@ -115,6 +115,11 @@
 .eachblog{
   margin: 3px;
 }
+@media (min-width:991px) {
+  .eachblog{
+   padding: 0px 25px 0px 25px;
+  }
+}
 .moretitle{
  margin-bottom: 10px;
  font-size: 1.5em;

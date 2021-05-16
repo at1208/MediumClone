@@ -185,8 +185,10 @@ const Blog = ({ query, router, blog, error }) => {
                  <div className="col-md-3">
                  </div>
              </div>
+             <br /><br />
              <div className={styles.morecontainer}>
                <h3 className={styles.moretitle}>More from App</h3>
+               <br />
                <hr />
                <div className="row col">
                  {relatedBlogs()}

@@ -20,13 +20,10 @@ import {random_categories } from '../actions/category';
 
 
 
-const Home = () => {
+const Home = ({ largeBlogs, smallBlogs, mediumBlogs }) => {
   const [authors, setAuthors] = useState();
   const [trendingBlogs, setTrending] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [largeBlogs, setLargeBlogs] = useState();
-  const [smallBlogs, setSmallBlogs] = useState();
-  const [mediumBlogs, setMediumBlogs] = useState();
   const [categories, setCategories] = useState();
 
 
@@ -44,17 +41,6 @@ const Home = () => {
     }
   })
 
-
- useEffect(() => {
-   blog_list().then(blog => {
-       let largeBlogs = blog && blog[0];
-       let smallBlogs = blog && blog.slice(1, 5);
-       let mediumBlogs = blog && blog.slice(6);
-       setLargeBlogs(largeBlogs)
-       setSmallBlogs(smallBlogs)
-       setMediumBlogs(mediumBlogs)
-      })
- }, [])
 
   useEffect(() => {
     author_list()
@@ -264,5 +250,23 @@ const Home = () => {
               </div>
           </Layout>
          </>
+}
+
+Home.getInitialProps = async () => {
+  try {
+       let blog = await blog_list()
+       let largeBlogs = blog && blog[0];
+       let smallBlogs = blog && blog.slice(1, 5);
+       let mediumBlogs = blog && blog.slice(6);
+       return {
+         largeBlogs,
+         smallBlogs,
+         mediumBlogs
+       }
+  } catch (e) {
+    return {
+      error: e
+    }
+  }
 }
 export default Home

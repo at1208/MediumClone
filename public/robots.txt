@@ -1,6 +1,21 @@
-Sitemap: http://amanread.netlify.app
-
+# *
 User-agent: *
-Allow: /*
+Allow: /
 
-Disallow: 
+# test-bot
+User-agent: test-bot
+Allow: /path
+Allow: /path-2
+
+# black-listed-bot
+User-agent: black-listed-bot
+Disallow: /sub-path-1
+Disallow: /path-2
+
+# Host
+Host: https://example.com
+
+# Sitemaps
+Sitemap: https://example.com/server-sitemap.xml
+Sitemap: https://example.com/my-custom-sitemap-2.xml
+Sitemap: https://example.com/my-custom-sitemap-3.xml

@@ -82,3 +82,20 @@ export const related_blogs = (data) => {
        console.log(error)
    });
 }
+
+
+export const blogs_list_for_sitemap = () => {
+   return fetch(`${process.env.NEXT_PUBLIC_SERVER_API}/blog/list/sitemap/${process.env.NEXT_PUBLIC_DOMAIN_ID}`, {
+    method: 'GET',
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+   })
+   .then(response => {
+       return response.json();
+   })
+   .catch(error => {
+       console.log(error)
+   });
+}

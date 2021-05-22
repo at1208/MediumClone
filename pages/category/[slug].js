@@ -16,13 +16,13 @@ const Category = ({ data }) => {
     return <>
             <Layout>
               <h1 className="text-center mb-5">Category name</h1>
-              <div className="row col">
+              <div className="row col container">
                 <div className="col-md-3">
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-7">
                  <BlogsByCategory />
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-1">
                 </div>
               </div>
             </Layout>

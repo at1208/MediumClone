@@ -10,6 +10,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
      return {
        loc: `${process.env.NEXT_PUBLIC_DOMAIN_URL}/${eachblog.slug}`,
        lastmod: eachblog.updatedAt,
+       changefreq:'daily',
        priority:1
      }
   })

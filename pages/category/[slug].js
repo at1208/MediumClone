@@ -1,30 +1,44 @@
 import { withRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import BlogMediumCard from '../../components/Blog/Cards/mediumCard';
+import { blogs_list_by_category } from '../../actions/blog';
 
-const Category = ({ router }) => {
+const Category = ({ data }) => {
 
-
-  const categoryBlogList = () => {
-     return [{}, {}, {}, {}].map((blog, i) => {
-        return <BlogMediumCard />
-      })
+  if(data){
+   function BlogsByCategory(){
+     return data.map((blog, i) => {
+       return <BlogMediumCard
+               blog={blog}
+               key={i} />
+     })
+   }
+    return <>
+            <Layout>
+              <h1 className="text-center mb-5">Category name</h1>
+              <div className="row col">
+                <div className="col-md-3">
+                </div>
+                <div className="col-md-6">
+                 <BlogsByCategory />
+                </div>
+                <div className="col-md-3">
+                </div>
+              </div>
+            </Layout>
+           </>
+  }else{
+    return <>
+           </>
   }
 
-  return <>
-          <Layout>
-            <h1 className="text-center mb-5">Category name</h1>
-            <div className="row col">
-              <div className="col-md-3">
-              </div>
-              <div className="col-md-6">
-                {categoryBlogList()}
-              </div>
-              <div className="col-md-3">
-              </div>
-            </div>
-          </Layout>
-         </>
+}
+
+Category.getInitialProps = ({ query }) => {
+    return blogs_list_by_category(query.slug)
+      .then(response => {
+         return { data: response }
+      })
 }
 
 export default withRouter(Category);

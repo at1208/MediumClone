@@ -17,5 +17,3 @@ Host: https://example.com
 
 # Sitemaps
 Sitemap: https://example.com/server-sitemap.xml
-Sitemap: https://example.com/my-custom-sitemap-2.xml
-Sitemap: https://example.com/my-custom-sitemap-3.xml

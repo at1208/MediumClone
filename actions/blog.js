@@ -99,3 +99,21 @@ export const blogs_list_for_sitemap = () => {
        console.log(error)
    });
 }
+
+export const blogs_list_by_category = (data) => {
+ 
+   return fetch(`${process.env.NEXT_PUBLIC_SERVER_API}/blog/list/category/${process.env.NEXT_PUBLIC_DOMAIN_ID}`, {
+    method: 'POST',
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+   })
+   .then(response => {
+       return response.json();
+   })
+   .catch(error => {
+       console.log(error)
+   });
+}

@@ -15,9 +15,9 @@ const Card = ({ blog }) => {
                    <div className={styles.left}>
                      <div className="row">
                      <div className={styles.category}>
-                     
+
                      </div>
-                     <div className="col">
+                     <div className="col authorCat">
                       <font className={styles.name}>{blog && blog.postedBy && blog.postedBy.full_name}</font>
                       <font className={styles.in}>in</font>
                       <font className={styles.categoryname}>{blog && blog.categories && blog.categories[0].name}</font>

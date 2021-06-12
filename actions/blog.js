@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 export const blog_list = (data) => {
-   return fetch(`${process.env.NEXT_PUBLIC_SERVER_API}/blog/list/${process.env.NEXT_PUBLIC_DOMAIN_ID}`, {
+   return fetch(`${process.env.NEXT_PUBLIC_SERVER_API}/blog/list/domain/${process.env.NEXT_PUBLIC_DOMAIN_ID}`, {
     method: 'POST',
     headers: {
       Accept: "application/json",

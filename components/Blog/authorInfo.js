@@ -28,8 +28,7 @@ if(show){
             WRITTEN BY
             <div>
             <section className={styles.name}>{blog.postedBy.full_name}</section>
-            <font className={styles.aboutauthor}>Security researcher, uncertified hacker, crypto trader.
-            Author of the OWASP Mobile Security Guide. Pwnie winner. Former @ConsenSys</font>
+            <font className={styles.aboutauthor}></font>
             </div>
             <br />
             <hr />

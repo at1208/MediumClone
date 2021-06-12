@@ -119,3 +119,7 @@ hr{
 img{
   width: 100%;
 }
+.authorCat{
+  position: absolute;
+  left:-10px;
+}

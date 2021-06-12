@@ -1,5 +1,6 @@
 .outercontainer{
   /* height: 110px; */
+  margin-bottom: 10px;
   padding-bottom: 20px;
   padding-left: 3%;
   padding-top: 20px;
@@ -12,6 +13,9 @@
 }
 .appname{
   font-size: 30px;
+  font-weight: 600;
+  font-family: none;
+  padding-top: 20px;
 }
 @media (min-width:767px) {
   .appname{
@@ -32,4 +36,15 @@
   /* padding:5px  10px 0px;
   font-weight: 400;
   font-size: 15px; */
+}
+
+@media (min-width:767px) {
+  .logo{
+   width: 100px
+  }
+}
+@media (max-width:767px) {
+  .logo{
+   width: 80px
+  }
 }

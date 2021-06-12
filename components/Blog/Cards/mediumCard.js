@@ -15,9 +15,9 @@ const Card = ({ blog }) => {
                  <div className="col-md-8 col-sm-8 col-8">
                      <div className="row">
                        <div className={styles.category}>
-                     
+
                        </div>
-                       <div className="col pt-2">
+                       <div className="col pt-2 authorCat">
                         <font className={styles.name}>{blog.postedBy.full_name}</font>
                         <font className={styles.in}>in</font>
                         <font className={styles.categoryname}>{blog.categories[0].name}</font>

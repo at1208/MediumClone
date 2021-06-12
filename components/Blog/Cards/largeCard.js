@@ -14,9 +14,9 @@ const Card = ({ blog }) => {
                  </a>
                 <div className="row pt-3 pr-2 pb-2">
                   <div className={styles.category}>
-                   
+
                   </div>
-                  <div className="col pt-1">
+                  <div className="col pt-1 authorCat">
                    <font className={styles.name}>{blog.postedBy.full_name}</font>
                    <font className={styles.in}>in</font>
                    <font className={styles.categoryname}>{blog.categories[0].name}</font>
@@ -25,7 +25,7 @@ const Card = ({ blog }) => {
 
                   <a>
                   <section className={styles.title}>{blog.title}</section>
-                <section className={styles.subheading}>Read OneZero’s interview with author Anna Wiener</section>
+                <section className={styles.subheading}>Read Top Stories With Author {blog.postedBy.full_name}</section>
                   </a>
                 <small className={styles.time}>{moment(blog.createdAt).format("MMM D")}  . {readingTime(blog.body || " ").text}</small>
                 <br /><br />

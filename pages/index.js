@@ -27,6 +27,7 @@ const Home = ({ largeBlogs, smallBlogs, mediumBlogs }) => {
   const [categories, setCategories] = useState();
 
 
+
   useEffect(() => {
     window.onscroll = function() {myFunction()};
     var rightside = document.getElementById("rightbottom");
@@ -145,17 +146,17 @@ const Home = ({ largeBlogs, smallBlogs, mediumBlogs }) => {
   function ReadByCategories(){
     if(categories){
       return categories.map((item, i) => {
-        return <>
-               <Box p={0}>
-               <Link href={`/category/${item.slug}`}>
-                <a>
-                  <Typography variant="body1" className={styles.categoryName}>{item.name}</Typography>
-                </a>
-               </Link>
-               <br />
+        return<Box p={0} key={i}>
+                <Link href={`/category/${item.slug}`}>
+                 <a>
+                   <Typography variant="body1" className={styles.categoryName}>{item.name}</Typography>
+                 </a>
+                </Link>
+                <br />
                 <hr />
-               </Box>
-              </>
+             </Box>
+
+
       })
     }
   }
@@ -206,7 +207,7 @@ const Home = ({ largeBlogs, smallBlogs, mediumBlogs }) => {
               </div>
               <hr />
               <div className="div-container mt-5">
-                <section className={styles.title3}> TRENDING ON APP</section>
+                <section className={styles.title3}> TRENDING ON TravloJournal</section>
                 <div className="row col">
                    <TrendingList />
                 </div>
@@ -224,14 +225,49 @@ const Home = ({ largeBlogs, smallBlogs, mediumBlogs }) => {
                          <span><WbIncandescentIcon className={styles.ideaIcon}/></span>
                          <label className={styles.exploreText}>Explore our IDEAS</label>
                        </div>
-                       <div className="row col">
-                         <div className="col-md-6 col-sm-6 col-lg-6 col-6 p-2">
+                       <div className="row col justify-content-center">
+                         <div className="col-md-5 col-sm-5 col-lg-5 col-6 p-2">
+                             <img src="/travlojournal.svg"
+
+                               onClick={() => window.location = "http://travlojournal.com"}
+                               className={styles.logo} />
+                         </div>
+                         <div className="col-md-5 col-sm-5 col-lg-5 col-6 p-2">
+                             <img src="/fashiofly.svg"
+
+                               onClick={() => window.location = "http://fashiofly.com"}
+                               className={styles.logo} />
+                         </div>
+                         <div className="col-md-5 col-sm-5 col-lg-5 col-6 p-2">
+                             <img src="/artoftalk.svg"
+
+                               onClick={() => window.location = "http://artoftalk.in"}
+                               className={styles.logo} />
+                         </div>
+                         <div className="col-md-5 col-sm-5 col-lg-5 col-6 p-2">
+                             <img src="/elitegamezone.svg"
+
+                               onClick={() => window.location = "http://elitegamezone.com"}
+                               className={styles.logo} />
+                         </div>
+
+                         <div className="col-md-5 col-sm-5 col-lg-5 col-6 p-2">
+                             <img src="/vedifly.svg"
+
+                               onClick={() => window.location = "http://vedifly.com"}
+                               className={styles.logo} />
+                         </div>
+                         <div className="col-md-5 col-sm-5 col-lg-5 col-6 p-2">
+                             <img src="/scientifly.svg"
+
+                               onClick={() => window.location = "http://scientifly.com"}
+                               className={styles.logo} />
+                         </div>
+                         <div className="col-md-5 col-sm-5 col-lg-5 col-6 p-2">
                             <img src="/geeksocean.svg"
-                              height={55}
+
                               onClick={() => window.location = "http://geeksocean.com"}
                               className={styles.logo} />
-                         </div>
-                         <div className="col-md-6 col-sm-6 col-lg-6 col-6 p-2">
                          </div>
                        </div>
                      </div>
@@ -257,7 +293,7 @@ Home.getInitialProps = async () => {
        let blog = await blog_list()
        let largeBlogs = blog && blog[0];
        let smallBlogs = blog && blog.slice(1, 5);
-       let mediumBlogs = blog && blog.slice(6);
+       let mediumBlogs = blog && blog.slice(5);
        return {
          largeBlogs,
          smallBlogs,

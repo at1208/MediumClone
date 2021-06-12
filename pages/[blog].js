@@ -47,7 +47,7 @@ const Blog = ({ query, blog }) => {
             </div>
             <br /><br />
             <div className={styles.morecontainer}>
-            <label className={styles.moretitle}>More from App</label>
+            <h5 className={styles.moretitle}>More from TravloJournal</h5>
             <br />
             <hr />
             <div className="row col">

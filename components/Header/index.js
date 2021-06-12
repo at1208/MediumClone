@@ -26,15 +26,17 @@ const Header = ({ isAuthenticated }) => {
 
   return <div className={styles.outercontainer}>
             <div className="row">
-              <div className="col-6">
-               <h1 className={styles.appname}>App name</h1>
+              <div className="col-10 row col-md-10 col-sm-10">
+               <img src="/travlojournal.svg" className={styles.logo}/>
+                <div>
+                <h1 className={styles.appname}>TravloJournal</h1>
+                </div>
               </div>
-              <div className="col-6">
+              <div className="col-2 col-md-2 col-sm-2">
                   {user && <div className="row justify-content-end">
-
                      <Dropdown overlay={menu}>
                         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                         <img src={user[0] && user[0].picture} className={styles.picture} alt="profile picture"  />
+                         <img src={user[0] && user[0].picture} className={styles.picture} alt="DP"  />
                         </a>
                       </Dropdown>
                   </div>}
